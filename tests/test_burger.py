@@ -64,38 +64,3 @@ def test_burger_get_receipt():
     assert receipt_lines[1] == '= filling test_filling ='
     assert receipt_lines[2] == '(==== test_bun ====)'
     assert receipt_lines[4] == 'Price: 130'
-
-
-# @pytest.mark.parametrize("bun_price, ingredient_prices, total_price", [
-#     (50, [30], 130),
-#     (100, [], 200),
-#     (70, [20, 30], 190)
-# ])
-# def test_burger_get_receipt(bun_price, ingredient_prices, total_price):
-#     # Mock for Bun
-#     bun = Mock(spec=Bun)
-#     bun.get_name.return_value = "test_bun"
-#     bun.get_price.return_value = bun_price
-#
-#     # Create burger
-#     burger = Burger()
-#     burger.set_buns(bun)
-#
-#     # Add ingredients
-#     for price in ingredient_prices:
-#         ingredient = Mock(spec=Ingredient)
-#         ingredient.get_name.return_value = "test_filling"
-#         ingredient.get_type.return_value = "FILLING"
-#         ingredient.get_price.return_value = price
-#         burger.add_ingredient(ingredient)
-#
-#     receipt = burger.get_receipt()
-#     print(f"Receipt:\n{receipt}")  # Debug print
-#     receipt_lines = receipt.split('\n')
-#
-#     assert receipt_lines[0] == '(==== test_bun ====)'
-#     assert all(
-#         receipt_lines[i+1] == f'= filling test_filling =' for i in range(len(ingredient_prices))
-#     )
-#     assert receipt_lines[len(ingredient_prices) + 1] == f'(==== test_bun ====)'
-#     assert receipt_lines[len(ingredient_prices) + 2] == f'Price: {total_price}'
